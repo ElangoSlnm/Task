@@ -12,7 +12,7 @@ public class DbConnection{
             Properties props = PropertyReader.getProperty("db");
             // Class.forName("org.postgresql.Driver");
             conn= DriverManager.getConnection(props.getProperty("url"),props);
-            System.out.println("Connection Establish.!");
+            System.out.println("Connection Established.!");
 
 	    } catch(SQLException e) {
             System.out.println(e.getMessage());
