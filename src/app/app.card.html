@@ -1,0 +1,28 @@
+<div>
+    <div class="nav">
+        <mat-form-field class="example-form-field">
+            <mat-label>Search</mat-label>
+            <input matInput type="text" [(ngModel)]="value" (keyup)=searchItems(value)>
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear"
+                (click)="searchItems(null);value=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+       
+    </div>
+    <mat-nav-list *ngFor="let i of filteredItems">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title class="title">{{i.confName}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image [src]="cleanUrl(i.imageURL)" alt="Photo of a Shiba Inu" class="poster">
+            <mat-card-subtitle><b>Date: </b>{{i.confEndDate}}</mat-card-subtitle>
+            <mat-card-subtitle><b>Entry: </b>{{i.entryType}}</mat-card-subtitle>
+            <mat-card-content>{{i.venue}}</mat-card-content>
+            <mat-card-actions>
+                <a [href]="i.confUrl"><button mat-button class="btn">ENTER WEBSITE</button></a>
+            </mat-card-actions>
+        </mat-card>
+    </mat-nav-list>
+</div>
